@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import type { ChatMessage as BaseChatMessage, RegionalLanguageCode } from '../types';
 import { SUPPORTED_LANGUAGES } from '../data/mockData';
+import { LOCALIZATION_DATA } from '../data/localization';
 import {
   EMERGENCY_RESPONSES,
   MEDICINE_RESPONSES,
@@ -72,6 +73,7 @@ const QUICK_PROMPTS: Record<string, string[]> = {
 };
 
 export const AIChatAssistant: React.FC<AIChatAssistantProps> = ({ language }) => {
+  const t = LOCALIZATION_DATA[language] || LOCALIZATION_DATA.en;
   const getInitialMessages = (lang: string): ChatMessage[] => {
     return [
       {
@@ -808,11 +810,11 @@ export const AIChatAssistant: React.FC<AIChatAssistantProps> = ({ language }) =>
 
         <input
           type="text"
-          placeholder="Ask health query in regional dialect..."
+          placeholder={t.askPlaceholder}
           value={inputQuery}
           onChange={(e) => setInputQuery(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
-          className="flex-1 glass-input text-xs"
+          className="flex-1 glass-input text-xs text-white placeholder-slate-400 bg-slate-950/90 border border-slate-800 focus:border-teal-500 focus:bg-slate-950 rounded-xl px-4 py-2.5 outline-none shadow-inner"
         />
 
         <button
