@@ -1,0 +1,17 @@
+{
+  "symptom": "Fever",
+  "nativeNames": ["बुखार", "காய்ச்சல்", "জ্বর", "జ్వరం", "ताप"],
+  "commonCauses": ["Viral infections (Flu, Common Cold)", "Bacterial infections", "Mosquito-borne diseases (Dengue, Malaria)", "Inflammatory conditions"],
+  "questions": [
+    "What is your body temperature, and how many days have you had the fever?",
+    "Do you have chills, body aches, sore throat, cough, or skin rashes?",
+    "Have you taken any fever-reducing medicine like Paracetamol, and did it help?"
+  ],
+  "redFlags": [
+    "Fever above 103°F (39.4°C) that does not decrease with medicine",
+    "Difficulty breathing or chest pain",
+    "Stiff neck, severe headache, confusion, or convulsions"
+  ],
+  "recommendations": "Rest adequately, drink plenty of fluids (water, coconut water, soups), and sponge with lukewarm water. Do not self-prescribe heavy antibiotics.",
+  "source": "Indian Council of Medical Research (ICMR) Health Advisories"
+}

@@ -1,0 +1,17 @@
+{
+  "symptom": "Headache",
+  "nativeNames": ["सिर दर्द", "தலைவலி", "తలనొప్పి", "মাথা ব্যথা", "डोकेदुखी"],
+  "commonCauses": ["Dehydration", "Tension or stress", "Lack of sleep", "Eye strain or refractive error", "Migraine", "High blood pressure (Hypertension)"],
+  "questions": [
+    "How long have you had this headache?",
+    "Is the pain throbbing, dull, or sharp, and is it on one side or both sides of your head?",
+    "Do you have other symptoms like fever, nausea, or changes in vision?"
+  ],
+  "redFlags": [
+    "Sudden, explosive, severe pain ('thunderclap' headache)",
+    "Headache accompanied by stiff neck, high fever, or confusion",
+    "Headache with numbness, weakness, difficulty speaking, or difficulty walking"
+  ],
+  "recommendations": "Ensure you are well-hydrated, rest in a quiet, dark room, and avoid screen time. If symptoms persist or worsen, consult a healthcare provider.",
+  "source": "AIIMS New Delhi Patient Education Portal & Mayo Clinic"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Paracetamol (Dolo 650, Crocin)",
+  "genericName": "Acetaminophen",
+  "commonUses": "Used to treat mild to moderate pain (headaches, body aches, muscle pain) and reduce fever.",
+  "sideEffects": ["Rare side effects when taken at normal doses.", "Rare allergic reactions."],
+  "precautions": "Do not exceed the daily dose of 4000 mg (4 grams) to prevent liver damage. Keep 4-6 hours gap between doses.",
+  "warnings": "Avoid taking other paracetamol-containing medications simultaneously. Extreme overdose can cause liver failure.",
+  "source": "National Health Portal India & Clinical Guidelines"
+}

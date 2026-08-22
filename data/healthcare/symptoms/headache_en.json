@@ -1,0 +1,11 @@
+{
+  "symptom": "Headache",
+  "commonCauses": ["Dehydration", "Tension/stress", "Lack of sleep", "Eye strain", "Migraine", "High blood pressure"],
+  "questions": [
+    "How long have you had this headache, and is it a sharp or throbbing pain?",
+    "Is the pain on one side or all over your head?",
+    "Are you experiencing any other symptoms, like fever, stiff neck, or vomiting?"
+  ],
+  "recommendations": "Stay well-hydrated, rest in a quiet, dark room, and avoid mobile/computer screens. Consider simple paracetamol if appropriate, but consult a doctor if the pain is severe.",
+  "source": "AIIMS Patient Education Portal & Mayo Clinic"
+}

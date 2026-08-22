@@ -1,0 +1,11 @@
+{
+  "symptom": "Fever",
+  "commonCauses": ["Viral infection", "Bacterial infection", "Mosquito-borne illness (Dengue, Malaria)", "Influenza"],
+  "questions": [
+    "What is your body temperature, and how many days has the fever lasted?",
+    "Do you have other symptoms like a cough, cold, chills, body aches, or a skin rash?",
+    "Have you taken any fever medicines, and did your temperature go down after taking them?"
+  ],
+  "recommendations": "Rest adequately, stay hydrated (water, electrolyte solutions, warm soups), and record your temperature periodically. You may take Paracetamol to reduce fever. Avoid self-prescribing antibiotics.",
+  "source": "ICMR Health Guidelines & WHO Advisory"
+}

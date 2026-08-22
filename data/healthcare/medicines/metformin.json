@@ -1,0 +1,10 @@
+{
+  "name": "Metformin",
+  "brandNames": ["Glycomet", "Glucophage"],
+  "genericName": "Metformin Hydrochloride",
+  "commonUses": "Commonly prescribed as the first-line medication for the treatment of Type 2 Diabetes. It works by reducing glucose production in the liver, increasing insulin sensitivity of muscle cells, and delaying intestinal glucose absorption.",
+  "sideEffects": ["Nausea", "Diarrhea", "Abdominal discomfort", "Loss of appetite", "Metallic taste in mouth"],
+  "precautions": "Take with meals to reduce gastrointestinal side effects. Stay hydrated to reduce the risk of kidney strain.",
+  "warnings": "Avoid excessive alcohol consumption as it increases the risk of lactic acidosis. Not recommended for patients with severe kidney impairment (eGFR below 30 mL/min).",
+  "source": "WHO Model List of Essential Medicines & Jan Swasthya Kendra Guidelines"
+}

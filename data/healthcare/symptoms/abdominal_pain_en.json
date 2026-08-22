@@ -1,0 +1,11 @@
+{
+  "symptom": "Abdominal Pain",
+  "commonCauses": ["Gastritis/acidity", "Gas/bloating", "Indigestion", "Food poisoning", "Muscle strain", "Appendicitis"],
+  "questions": [
+    "Where exactly is the pain located (e.g., upper, lower, left, or right side of your stomach)?",
+    "Is it a constant dull ache or sudden sharp cramps?",
+    "Are you having any vomiting, diarrhea, bloating, or fever?"
+  ],
+  "recommendations": "Avoid heavy, oily, or spicy foods. Sip warm water. Avoid taking pain relievers like NSAIDs (Ibuprofen, Diclofenac) on an empty stomach, as they can cause stomach inflammation (Gastritis).",
+  "source": "NIH Diabetes and Digestive and Kidney Diseases & WHO Guidance"
+}

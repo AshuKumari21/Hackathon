@@ -1,0 +1,18 @@
+{
+  "symptom": "Abdominal Pain",
+  "nativeNames": ["पेट में दर्द", "வயிறு வலி", "வயிற்று வலி", "পেটে ব্যথা", "పొత్తిಕడుపు నొప్పి", "पोटदुखी"],
+  "commonCauses": ["Indigestion or acidity (Gastritis)", "Gas or bloating", "Food poisoning", "Muscle strain", "Appendicitis (especially lower right side)", "Kidney stones"],
+  "questions": [
+    "Where exactly is the pain located (upper, lower, left side, right side)?",
+    "Is it a sharp, sudden pain, or a dull, constant cramp?",
+    "Are you having other symptoms like vomiting, diarrhea, bloating, or fever?"
+  ],
+  "redFlags": [
+    "Severe, sudden, excruciating abdominal pain",
+    "Abdomen is rigid, hard, or extremely tender to touch",
+    "Vomiting blood or passing bloody/black stools",
+    "High fever accompanied by inability to pass gas or stool"
+  ],
+  "recommendations": "Avoid heavy or spicy foods. Sip warm water. Rest in a comfortable position. Avoid taking pain killers like NSAIDs (e.g. Ibuprofen) without a doctor's advice, as they can worsen stomach inflammation (Gastritis).",
+  "source": "NIH National Institute of Diabetes and Digestive and Kidney Diseases"
+}

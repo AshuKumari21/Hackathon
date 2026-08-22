@@ -1,0 +1,9 @@
+{
+  "name": "Metformin",
+  "genericName": "Metformin Hydrochloride",
+  "commonUses": "First-line medicine to control blood sugar levels in Type 2 Diabetes. It decreases glucose production in the liver and improves body insulin response.",
+  "sideEffects": ["Nausea", "Mild diarrhea", "Stomach bloating", "Metallic taste in mouth"],
+  "precautions": "Take with meals to prevent stomach irritation. Drink plenty of water to keep kidneys healthy.",
+  "warnings": "Do not take if you have severe kidney disease (eGFR below 30). Avoid heavy drinking to prevent lactic acidosis.",
+  "source": "WHO Essential Medicine List & Jan Swasthya Kendra Guidelines"
+}

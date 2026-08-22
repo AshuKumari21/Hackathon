@@ -1,0 +1,10 @@
+{
+  "name": "Paracetamol",
+  "brandNames": ["Dolo 650", "Crocin", "Calpol"],
+  "genericName": "Acetaminophen",
+  "commonUses": "Widely used for reducing fever (antipyretic) and relieving mild to moderate pain (analgesic) such as headaches, muscle aches, sore throat, or toothaches.",
+  "sideEffects": ["Rare side effects when taken at recommended doses.", "Allergic skin reactions (very rare)."],
+  "precautions": "Do not exceed the maximum daily dose of 4000 mg (4 grams) in adults. Keep at least 4-6 hours gap between doses.",
+  "warnings": "Avoid double dosing by checking if other cold or cough medications also contain paracetamol. Overdose can lead to severe and potentially fatal liver damage.",
+  "source": "National Health Portal (NHP) India & ICMR Clinical Guidelines"
+}
