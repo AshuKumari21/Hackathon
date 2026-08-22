@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import type { RegionalLanguageCode } from '../types';
 import { Cpu, X, ArrowRight, CheckCircle2, ShieldCheck, Database, Volume2 } from 'lucide-react';
 
 interface LangGraphDrawerProps {
   isOpen: boolean;
   onClose: () => void;
+  language?: RegionalLanguageCode;
 }
 
-export const LangGraphDrawer: React.FC<LangGraphDrawerProps> = ({ isOpen, onClose }) => {
+export const LangGraphDrawer: React.FC<LangGraphDrawerProps> = ({ isOpen, onClose, language = 'en' }) => {
   const [activeStep, setActiveStep] = useState(0);
 
   if (!isOpen) return null;
@@ -16,7 +18,7 @@ export const LangGraphDrawer: React.FC<LangGraphDrawerProps> = ({ isOpen, onClos
     { id: 'drug_normalizer', name: '2. Drug Normalizer', desc: 'Maps brand names (e.g. Glycomet) to RxNorm generic Metformin.', status: 'SUCCESS', icon: Database },
     { id: 'confidence_evaluator', name: '3. Confidence Gatekeeper', desc: 'Computes threshold (94% confidence > 70% minimum cutoff).', status: 'SUCCESS', icon: ShieldCheck },
     { id: 'disease_reasoner', name: '4. Disease Reasoner', desc: 'Infers Type 2 Diabetes & Hypertension; loads diet guidelines.', status: 'SUCCESS', icon: CheckCircle2 },
-    { id: 'regional_translator', name: '5. Regional Translator', desc: 'Translates instruction into target language script (Hindi/Tamil).', status: 'SUCCESS', icon: ArrowRight },
+    { id: 'regional_translator', name: '5. Regional Translator', desc: `Translates instruction into target language script (${language.toUpperCase()}).`, status: 'SUCCESS', icon: ArrowRight },
     { id: 'tts_node', name: '6. TTS Generator', desc: 'Piper ONNX synthesizes regional voice audio stream.', status: 'SUCCESS', icon: Volume2 },
     { id: 'doctor_matcher', name: '7. Doctor Matcher', desc: 'Queries SQLite spatial geohash index for nearby specialists.', status: 'SUCCESS', icon: CheckCircle2 },
   ];

@@ -1,4 +1,5 @@
 import type { PrescriptionScan, RegionalLanguageCode } from '../types';
+import { LOCALIZATION_DATA } from '../data/localization';
 import { HeartPulse, Utensils, Activity, Sparkles } from 'lucide-react';
 
 interface DiseaseGuidanceProps {
@@ -7,6 +8,7 @@ interface DiseaseGuidanceProps {
 }
 
 export const DiseaseGuidance: React.FC<DiseaseGuidanceProps> = ({ scan, language }) => {
+  const t = LOCALIZATION_DATA[language] || LOCALIZATION_DATA.en;
   const transcriptData =
     scan.regionalTranscripts[language] ||
     scan.regionalTranscripts.hi ||
@@ -25,13 +27,13 @@ export const DiseaseGuidance: React.FC<DiseaseGuidanceProps> = ({ scan, language
             <HeartPulse className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-base font-bold text-white">Disease-Aware Lifestyle & Diet Guidance</h2>
-            <p className="text-xs text-slate-400">Offline Medical Knowledge Graph Recommendations</p>
+            <h2 className="text-base font-bold text-white">{t.dietTitle}</h2>
+            <p className="text-xs text-slate-400">{t.dietGuidance}</p>
           </div>
         </div>
 
         <span className="px-2.5 py-1 rounded-full text-xs font-mono bg-slate-800 text-teal-300 border border-slate-700">
-          {scan.detectedConditions.length} Conditions Identified
+          {scan.detectedConditions.length} {t.conditionsDetected}
         </span>
       </div>
 
@@ -54,7 +56,7 @@ export const DiseaseGuidance: React.FC<DiseaseGuidanceProps> = ({ scan, language
         <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3">
           <div className="flex items-center gap-2 text-amber-400 font-semibold text-sm">
             <Utensils className="w-4 h-4" />
-            <span>Regional Diet & Nutrition Tips</span>
+            <span>{t.dietTitle}</span>
           </div>
 
           <ul className="space-y-2 text-xs text-slate-300">

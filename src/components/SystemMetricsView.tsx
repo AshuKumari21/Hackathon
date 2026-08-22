@@ -1,6 +1,14 @@
+import type { RegionalLanguageCode } from '../types';
+import { LOCALIZATION_DATA } from '../data/localization';
 import { Cpu, HardDrive, Zap, Database, Activity, CheckCircle2 } from 'lucide-react';
 
-export const SystemMetricsView: React.FC = () => {
+interface SystemMetricsViewProps {
+  language?: RegionalLanguageCode;
+}
+
+export const SystemMetricsView: React.FC<SystemMetricsViewProps> = ({ language = 'en' }) => {
+  const t = LOCALIZATION_DATA[language] || LOCALIZATION_DATA.en;
+
   return (
     <div className="space-y-6">
       {/* Metrics Banner */}
@@ -11,8 +19,8 @@ export const SystemMetricsView: React.FC = () => {
               <Cpu className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-white">ONNX Runtime & LangGraph System Metrics</h2>
-              <p className="text-xs text-slate-400">Real-Time Mobile WASM Heap & AI Inference Latency Benchmarks</p>
+              <h2 className="text-base font-bold text-white">{t.metricsTitle}</h2>
+              <p className="text-xs text-slate-400">{t.metricsSubtitle}</p>
             </div>
           </div>
 

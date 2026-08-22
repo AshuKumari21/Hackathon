@@ -1,13 +1,16 @@
 import { useState } from 'react';
-import type { Doctor } from '../types';
+import type { Doctor, RegionalLanguageCode } from '../types';
 import { MOCK_DOCTORS } from '../data/mockData';
+import { LOCALIZATION_DATA } from '../data/localization';
 import { UserCheck, Search, MapPin, Phone, Calendar, Star, Database, CheckCircle2 } from 'lucide-react';
 
 interface DoctorDirectoryProps {
   onEnqueueBooking: (doctor: Doctor) => void;
+  language: RegionalLanguageCode;
 }
 
-export const DoctorDirectory: React.FC<DoctorDirectoryProps> = ({ onEnqueueBooking }) => {
+export const DoctorDirectory: React.FC<DoctorDirectoryProps> = ({ onEnqueueBooking, language }) => {
+  const t = LOCALIZATION_DATA[language] || LOCALIZATION_DATA.en;
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSpecialty, setSelectedSpecialty] = useState('All');
   const [maxDistance, setMaxDistance] = useState<number>(20);
@@ -44,15 +47,15 @@ export const DoctorDirectory: React.FC<DoctorDirectoryProps> = ({ onEnqueueBooki
             <UserCheck className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-base font-bold text-white">Nearby Verified Doctor Directory</h2>
-            <p className="text-xs text-slate-400">Offline SQLite Spatial Geohash Index Lookup</p>
+            <h2 className="text-base font-bold text-white">{t.doctorTitle}</h2>
+            <p className="text-xs text-slate-400">{t.doctorSubtitle}</p>
           </div>
         </div>
 
         <div className="flex items-center gap-2">
           <span className="text-xs text-slate-400 font-mono flex items-center gap-1">
             <Database className="w-3.5 h-3.5 text-teal-400" />
-            <span>SQLite Offline Cache Active</span>
+            <span>{t.sqliteCache}</span>
           </span>
         </div>
       </div>

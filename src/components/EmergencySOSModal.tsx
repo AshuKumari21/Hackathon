@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
+import type { RegionalLanguageCode } from '../types';
+import { LOCALIZATION_DATA } from '../data/localization';
 import { AlertTriangle, Radio, X, CheckCircle2 } from 'lucide-react';
 
 interface EmergencySOSModalProps {
   isOpen: boolean;
   onClose: () => void;
+  language?: RegionalLanguageCode;
 }
 
-export const EmergencySOSModal: React.FC<EmergencySOSModalProps> = ({ isOpen, onClose }) => {
+export const EmergencySOSModal: React.FC<EmergencySOSModalProps> = ({ isOpen, onClose, language = 'en' }) => {
+  const t = LOCALIZATION_DATA[language] || LOCALIZATION_DATA.en;
   const [countdown, setCountdown] = useState<number | null>(null);
   const [broadcastDone, setBroadcastDone] = useState(false);
 
@@ -62,8 +66,8 @@ export const EmergencySOSModal: React.FC<EmergencySOSModalProps> = ({ isOpen, on
             <AlertTriangle className="w-7 h-7" />
           </div>
           <div>
-            <h2 className="text-lg font-extrabold text-white tracking-wide">🚨 EMERGENCY SOS BROADCAST</h2>
-            <p className="text-xs text-rose-300">Offline Cellular SMS & Audio Alert Protocol</p>
+            <h2 className="text-lg font-extrabold text-white tracking-wide">🚨 {t.sosTitle}</h2>
+            <p className="text-xs text-rose-300">{t.sosSubtitle}</p>
           </div>
         </div>
 

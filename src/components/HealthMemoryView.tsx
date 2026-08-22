@@ -1,12 +1,16 @@
-import type { PrescriptionScan } from '../types';
+import type { PrescriptionScan, RegionalLanguageCode } from '../types';
 import { MOCK_PRESCRIPTIONS } from '../data/mockData';
+import { LOCALIZATION_DATA } from '../data/localization';
 import { History, Calendar, FileText, Pill, ShieldCheck, Download } from 'lucide-react';
 
 interface HealthMemoryViewProps {
   onSelectScan: (scan: PrescriptionScan) => void;
+  language: RegionalLanguageCode;
 }
 
-export const HealthMemoryView: React.FC<HealthMemoryViewProps> = ({ onSelectScan }) => {
+export const HealthMemoryView: React.FC<HealthMemoryViewProps> = ({ onSelectScan, language }) => {
+  const t = LOCALIZATION_DATA[language] || LOCALIZATION_DATA.en;
+
   return (
     <div className="glass-panel p-5 space-y-5">
       <div className="flex items-center justify-between border-b border-slate-800 pb-4">
@@ -15,14 +19,14 @@ export const HealthMemoryView: React.FC<HealthMemoryViewProps> = ({ onSelectScan
             <History className="w-6 h-6" />
           </div>
           <div>
-            <h2 className="text-base font-bold text-white">Patient Health Memory Wallet</h2>
-            <p className="text-xs text-slate-400">Encrypted Local EHR History & Scanned Medical Records</p>
+            <h2 className="text-base font-bold text-white">{t.memoryTitle}</h2>
+            <p className="text-xs text-slate-400">{t.memorySubtitle}</p>
           </div>
         </div>
 
         <button className="btn-outline text-xs py-2 px-3 flex items-center gap-2">
           <Download className="w-4 h-4 text-teal-400" />
-          <span>Export ABHA Health Summary</span>
+          <span>{t.exportAbha}</span>
         </button>
       </div>
 

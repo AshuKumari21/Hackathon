@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { DashboardView } from './components/DashboardView';
 import { PrescriptionScanner } from './components/PrescriptionScanner';
@@ -27,7 +27,7 @@ export function App() {
   const [isOfflineMode, setIsOfflineMode] = useState(true);
   const [currentLanguage, setCurrentLanguage] = useState<RegionalLanguageCode>(() => {
     try {
-      const saved = localStorage.getItem('swasthya_selected_language') as RegionalLanguageCode | null;
+      const saved = (localStorage.getItem('bharatAI_language') || localStorage.getItem('swasthya_selected_language')) as RegionalLanguageCode | null;
       if (saved && SUPPORTED_LANGUAGES.some((l) => l.code === saved)) {
         return saved;
       }
@@ -38,13 +38,19 @@ export function App() {
   });
   const [activeScan, setActiveScan] = useState<PrescriptionScan>(MOCK_PRESCRIPTIONS[0]);
 
-  const handleLanguageChange = (lang: RegionalLanguageCode) => {
-    setCurrentLanguage(lang);
+  useEffect(() => {
+    document.documentElement.dir = currentLanguage === 'ur' ? 'rtl' : 'ltr';
+    document.documentElement.lang = currentLanguage;
     try {
-      localStorage.setItem('swasthya_selected_language', lang);
+      localStorage.setItem('bharatAI_language', currentLanguage);
+      localStorage.setItem('swasthya_selected_language', currentLanguage);
     } catch {
       // Ignore storage errors
     }
+  }, [currentLanguage]);
+
+  const handleLanguageChange = (lang: RegionalLanguageCode) => {
+    setCurrentLanguage(lang);
   };
   
   // Modals state
@@ -364,7 +370,7 @@ export function App() {
           )}
 
           {activeTab === 'doctors' && (
-            <DoctorDirectory onEnqueueBooking={handleEnqueueBooking} />
+            <DoctorDirectory onEnqueueBooking={handleEnqueueBooking} language={currentLanguage} />
           )}
 
           {activeTab === 'reminders' && (
@@ -373,6 +379,7 @@ export function App() {
 
           {activeTab === 'memory' && (
             <HealthMemoryView
+              language={currentLanguage}
               onSelectScan={(scan) => {
                 setActiveScan(scan);
                 setActiveTab('scanner');
@@ -381,15 +388,15 @@ export function App() {
           )}
 
           {activeTab === 'metrics' && (
-            <SystemMetricsView />
+            <SystemMetricsView language={currentLanguage} />
           )}
 
           {activeTab === 'eval' && (
             <div className="glass-panel p-6 space-y-4">
-              <h2 className="text-lg font-bold text-white">20 Evaluation Test Cases Suite</h2>
-              <p className="text-xs text-slate-400">Click the button below to launch full inspection modal.</p>
+              <h2 className="text-lg font-bold text-white">{t.evalTitle}</h2>
+              <p className="text-xs text-slate-400">{t.evalSubtitle}</p>
               <button onClick={() => setIsEvalOpen(true)} className="btn-teal text-xs">
-                Launch Evaluation Matrix & Failure Log
+                {t.runEval}
               </button>
             </div>
           )}
@@ -411,9 +418,9 @@ export function App() {
       </div>
 
       {/* Modals & Drawers */}
-      <EmergencySOSModal isOpen={isSosOpen} onClose={() => setIsSosOpen(false)} />
-      <LangGraphDrawer isOpen={isLangGraphOpen} onClose={() => setIsLangGraphOpen(false)} />
-      <EvaluationSuite isOpen={isEvalOpen} onClose={() => setIsEvalOpen(false)} />
+      <EmergencySOSModal isOpen={isSosOpen} onClose={() => setIsSosOpen(false)} language={currentLanguage} />
+      <LangGraphDrawer isOpen={isLangGraphOpen} onClose={() => setIsLangGraphOpen(false)} language={currentLanguage} />
+      <EvaluationSuite isOpen={isEvalOpen} onClose={() => setIsEvalOpen(false)} language={currentLanguage} />
     </div>
   );
 }

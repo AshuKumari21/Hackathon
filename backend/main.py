@@ -217,7 +217,9 @@ async def scan_prescription(request: PrescriptionScanRequest):
                         data=image_bytes,
                         mime_type=request.mime_type,
                     ),
-                    types.Part.from_text(text=PRESCRIPTION_VISION_PROMPT),
+                    types.Part.from_text(
+                        text=f"{PRESCRIPTION_VISION_PROMPT}\n\nPREFERRED LANGUAGE FOR SUMMARY & PHARMACIST NOTES: {request.language}"
+                    ),
                 ],
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",

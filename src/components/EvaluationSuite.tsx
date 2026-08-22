@@ -1,13 +1,17 @@
 import { useState } from 'react';
+import type { RegionalLanguageCode } from '../types';
 import { EVALUATION_CASES, FAILURE_LOG_SEEDS } from '../data/mockData';
+import { LOCALIZATION_DATA } from '../data/localization';
 import { Layers, X, CheckCircle2, Bug } from 'lucide-react';
 
 interface EvaluationSuiteProps {
   isOpen: boolean;
   onClose: () => void;
+  language?: RegionalLanguageCode;
 }
 
-export const EvaluationSuite: React.FC<EvaluationSuiteProps> = ({ isOpen, onClose }) => {
+export const EvaluationSuite: React.FC<EvaluationSuiteProps> = ({ isOpen, onClose, language = 'en' }) => {
+  const t = LOCALIZATION_DATA[language] || LOCALIZATION_DATA.en;
   const [activeTab, setActiveTab] = useState<'eval' | 'logs'>('eval');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
@@ -29,8 +33,8 @@ export const EvaluationSuite: React.FC<EvaluationSuiteProps> = ({ isOpen, onClos
               <Layers className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-white">Evaluation Matrix & Failure Log Seeds</h2>
-              <p className="text-xs text-slate-400">Benchmarking 20 Edge-Case Test Scenarios</p>
+              <h2 className="text-lg font-bold text-white">{t.evalTitle}</h2>
+              <p className="text-xs text-slate-400">{t.evalSubtitle}</p>
             </div>
           </div>
 
